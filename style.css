@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Georgia', sans-serif;
+  color: #222;
+}
+.navbar {
+  padding: 0.8rem;
+  background-color: #073489;
+}
+.navbar-nav li {
+  padding-right: 20px;
+}
+.nav-link {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.nav-item:hover {
+  color: white;
+  text-decoration: underline;
+}
+.nav-item {
+  text-align: right;
+}
+
+.img-fluid {
+  padding-top: 50px;
+  padding-left: 70px;
+}
+.col-lg-9 h6 {
+  padding-top: 55px;
+}
+.col-lg-9 h2 {
+  font-size: 40px;
+  font-weight: bold;
+}
+.col-lg-9 p {
+  padding-right: 32px;
+  text-align: justify;
+}
+#wrapper {
+  background-color: #d5dbdb;
+}
+#wrapper1 {
+  background-color: #d5dbdb;
+}
+.col-12 h1 {
+  padding-top: 30px;
+  font-size: 40px;
+  color: #34495e;
+}
+.col-12 h2 {
+  padding-top: 30px;
+  font-size: 40px;
+
+  padding-bottom: 25px;
+}
+.lead {
+  padding-left: 70px;
+  padding-right: 70px;
+  text-align: justify;
+}
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+  padding-top: 15px;
+}
+.carousel-caption {
+  position: absolute;
+  top: 65%;
+  transform: translateY(-15%);
+}
+.carousel-caption h1 {
+  font-size: 500%;
+  text-shadow: 1px 1px 10px;
+}
+.btn-primary {
+  background-color: #2052af;
+  border: 1px solid #073489;
+}
+.btn-primary:hover {
+  color: white;
+  background-color: black;
+}
+.padding {
+  padding-bottom: 2rem;
+}
+.welcome {
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+.welcome hr {
+  border-top: 2px solid #b4b4b4;
+  width: 95%;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+}
+.fa-coffee {
+  color: red;
+}
+.fa-python {
+  color: #118806;
+}
+.fa-html5 {
+  color: #f37d0e;
+}
+.fa-database {
+  color: #14c9e9;
+}
+.fa-css3 {
+  color: #2163af;
+}
+.fa-coffee,
+.fa-python,
+.fa-html5,
+.fa-database,
+.fa-css3 {
+  font-size: 4rem;
+  margin: 1rem;
+}
+.card-body h4 {
+  font-weight: bold;
+  background-color: #e8ecec;
+}
+#wrapper3 {
+  background-color: #d5dbdb;
+}
+.social a {
+  font-size: 4.5em;
+  padding: 3rem;
+}
+.fa-facebook {
+  color: #3b5998;
+}
+.fa-instagram {
+  color: #517fa4;
+}
+.fa-twitter {
+  color: #00aced;
+}
+.fa-google-plus-g {
+  color: #dd4b39;
+}
+.fa-whatsapp {
+  color: #27ae60;
+}
+.fa-facebook:hover,
+.fa-instagram:hover,
+.fa-twitter:hover,
+.fa-google-plus-g:hover,
+.fa-whatsapp:hover {
+  color: black;
+}
+footer {
+  background-color: white;
+  color: #34495e;
+  padding-top: 2rem;
+}
+hr.light {
+  border-top: 1px solid #d5d5d5;
+  width: 75%;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+footer a {
+  content: #d5d5d5;
+}
+hr.light-100 {
+  border-top: 1px solid #d5d5d5;
+  width: 100%;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 992px) {
+  .social a {
+    font-size: 4.5em;
+    padding: 2rem;
+  }
+  .img-fluid {
+    width: 220px;
+    height: 347px;
+    padding-top: 30px;
+    padding-left: 50px;
+  }
+  .col-lg-9 h6 {
+    padding-top: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .carousel-caption {
+    position: absolute;
+    top: 70%;
+  }
+
+  .carousel-caption h1 {
+    font-size: 200%;
+  }
+  .col-12 h1 {
+    font-size: 220%;
+    font-weight: bold;
+  }
+  .social a {
+    font-size: 2.5em;
+    padding: 1.2rem;
+  }
+  .img-fluid {
+    width: 220px;
+    height: 347px;
+    padding-top: 30px;
+    padding-left: 50px;
+  }
+  .col-lg-9 h6 {
+    padding-top: 40px;
+  }
+}
+@media (max-width: 576px) {
+  .carousel-caption {
+    position: absolute;
+    top: 67%;
+  }
+
+  .col-12 h1 {
+    font-size: 200%;
+    font-weight: bold;
+  }
+  .social a {
+    font-size: 2em;
+    padding: 0.7rem;
+  }
+  .carousel-caption h1 {
+    font-size: 150%;
+  }
+  .carousel-indicators {
+    display: none;
+  }
+  .fa-coffee,
+  .fa-python,
+  .fa-html5,
+  .fa-database,
+  .fa-css3 {
+    font-size: 2rem;
+    margin: 1rem;
+  }
+  .col-lg-9 h2 {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .nav-link {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  .col-12 h2 {
+    font-size: 200%;
+  }
+  .img-fluid {
+    width: 220px;
+    height: 347px;
+    padding-top: 30px;
+    padding-left: 50px;
+  }
+  .col-lg-9 h6 {
+    padding-top: 40px;
+  }
+}
+
+.lead1 {
+  padding-left: 110px;
+  padding-right: 110px;
+  text-align: center;
+}
