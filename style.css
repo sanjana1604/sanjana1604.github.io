@@ -266,6 +266,13 @@ hr.light-100 {
   .col-lg-9 h6 {
     padding-top: 40px;
   }
+  .carousel-inner img {
+    width: 100%;
+    height: 100%;
+    padding-top: 15px;
+    padding-left: 0rem;
+    padding-bottoom:15px;
+  }
 }
 
 .lead1 {
