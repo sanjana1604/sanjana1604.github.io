@@ -1,685 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanjana Gupta - Senior Software Engineer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #6366f1;
-            --secondary: #8b5cf6;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --accent: #ec4899;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background: var(--light);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            opacity: 0.9;
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            animation: fadeInUp 0.8s ease 0.6s both;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: white;
-            color: var(--primary);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        /* Section Styling */
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            margin: 1rem auto;
-            border-radius: 2px;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .skill-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tag {
-            background: var(--light);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        /* Experience Timeline */
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: var(--primary);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            width: calc(50% - 30px);
-        }
-
-        .timeline-item:nth-child(odd) {
-            margin-left: auto;
-            padding-left: 60px;
-        }
-
-        .timeline-item:nth-child(even) {
-            margin-right: auto;
-            padding-right: 60px;
-            text-align: right;
-        }
-
-        .timeline-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .timeline-content h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content .company {
-            color: var(--gray);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content .date {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .project-image {
-            height: 200px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-content h3 {
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .project-content .subtitle {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-stats {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--light);
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary);
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--gray);
-        }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .contact-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            color: white;
-            text-decoration: none;
-            transition: transform 0.3s;
-        }
-
-        .contact-link:hover {
-            transform: translateY(-5px);
-        }
-
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-            }
-
-            .timeline::before {
-                left: 30px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 60px !important;
-                padding-right: 0 !important;
-                text-align: left !important;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-links {
-                flex-direction: column;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sanjana Gupta — Senior Software Engineer specializing in React Native, cross-platform mobile engineering, native integrations, and AI-powered experiences.">
+  <meta name="theme-color" content="#101827">
+  <title>Sanjana Gupta | Senior Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="logo">SG</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Sanjana Gupta home">SG<span>.</span></a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#work">Selected work</a></li>
+        <li><a class="nav-contact" href="#contact">Contact</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Sanjana Gupta</h1>
-            <div class="subtitle">Senior Software Engineer | Mobile Developer</div>
-            <p>Passionate about building cross-platform mobile applications that serve millions. Specialized in React Native, Android, and iOS development with 3+ years of experience.</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                <a href="#projects" class="btn btn-secondary">View Projects</a>
-            </div>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-glow hero-glow-one"></div>
+      <div class="hero-glow hero-glow-two"></div>
+      <div class="container hero-content">
+        <p class="eyebrow"><span class="status-dot"></span> Senior Software Engineer · Hyderabad, India</p>
+        <h1>Building thoughtful<br><span>mobile experiences</span><br>that work at scale.</h1>
+        <p class="hero-copy">
+          I’m Sanjana, a software engineer with 4.5+ years of experience across
+          React Native, TypeScript, native iOS/Android integrations, and AI-powered
+          product experiences.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">Explore my work <span aria-hidden="true">↗</span></a>
+          <a class="button button-secondary" href="mailto:sanjanagupta2516@gmail.com">Get in touch</a>
         </div>
+        <div class="hero-meta">
+          <span>React Native</span><i></i><span>Mobile Architecture</span><i></i><span>AI Integrations</span>
+        </div>
+      </div>
+      <div class="hero-index" aria-hidden="true">01 / ENGINEERING</div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Mobile Development</h3>
-                    <div class="skill-tags">
-                        <span class="tag">React Native</span>
-                        <span class="tag">Android</span>
-                        <span class="tag">iOS</span>
-                        <span class="tag">Expo</span>
-                        <span class="tag">Kotlin</span>
-                        <span class="tag">Swift</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">Java</span>
-                        <span class="tag">Python</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <h3>Frontend & Backend</h3>
-                    <div class="skill-tags">
-                        <span class="tag">ReactJS</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">Redux</span>
-                        <span class="tag">GraphQL</span>
-                        <span class="tag">REST APIs</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <h3>Tools & Technologies</h3>
-                    <div class="skill-tags">
-                        <span class="tag">Git</span>
-                        <span class="tag">Jira</span>
-                        <span class="tag">Figma</span>
-                        <span class="tag">Firebase</span>
-                        <span class="tag">CI/CD</span>
-                    </div>
-                </div>
-            </div>
+    <section class="section about-section" id="about">
+      <div class="container about-grid">
+        <div>
+          <p class="section-kicker">01 — ABOUT</p>
+          <h2 class="section-heading">Engineering beyond<br>the interface.</h2>
         </div>
+        <div class="about-copy">
+          <p class="large-copy">
+            I build production-grade mobile applications and the systems that
+            make them reliable.
+          </p>
+          <p>
+            My experience spans enterprise mobile platforms, healthcare and
+            workforce products, real-time communication, native device
+            capabilities, and AI-agent integrations. I enjoy working across
+            application architecture, API contracts, platform behavior, and
+            the edge cases that shape a dependable user experience.
+          </p>
+          <p>
+            At Blue Yonder, my work includes Orchestrator mobile experiences:
+            chat and file workflows, reusable visualization components,
+            cross-platform voice foundations, and technical discovery for
+            long-running AI-agent interactions.
+          </p>
+          <div class="metrics">
+            <div class="metric"><strong>4.5+</strong><span>Years of experience</span></div>
+            <div class="metric"><strong>200K+</strong><span>App users supported</span></div>
+            <div class="metric"><strong>99.9%</strong><span>Crash-free sessions*</span></div>
+          </div>
+          <p class="metric-note">*Reported for applications described in my previous project experience.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" style="background: white;">
-        <div class="container">
-            <h2 class="section-title">Work Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Senior Software Engineer (SDE2)</h3>
-                        <div class="company">32nd Avenue</div>
-                        <div class="date">April 2025 - Present</div>
-                        <p>Architecting cross-platform applications and leading technical initiatives for startup-scale products serving 50K+ users.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Software Developer (SDE1)</h3>
-                        <div class="company">Unthinkable Solutions LLP</div>
-                        <div class="date">Feb 2022 - April 2025</div>
-                        <p>Delivered production-ready applications across healthcare and enterprise domains, serving 200K+ users with 4.5+ star ratings.</p>
-                    </div>
-                </div>
-            </div>
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-top">
+          <div>
+            <p class="section-kicker">02 — TOOLKIT</p>
+            <h2 class="section-heading">Technical skills</h2>
+          </div>
+          <p class="section-intro">A practical toolkit for building, integrating, and maintaining cross-platform products.</p>
         </div>
+        <div class="skills-grid">
+          <article class="skill-card">
+            <div class="skill-number">01</div>
+            <h3>Mobile engineering</h3>
+            <p>React Native, React.js, Expo, Android, iOS, native modules, React Navigation, Redux, Reanimated, Hermes, Context API</p>
+          </article>
+          <article class="skill-card">
+            <div class="skill-number">02</div>
+            <h3>Languages</h3>
+            <p>TypeScript, JavaScript (ES6+), Java, Python</p>
+          </article>
+          <article class="skill-card">
+            <div class="skill-number">03</div>
+            <h3>Architecture & integration</h3>
+            <p>Mobile application architecture, cross-platform development, SDK integration, REST APIs, GraphQL, WebSockets, authentication and session management</p>
+          </article>
+          <article class="skill-card">
+            <div class="skill-number">04</div>
+            <h3>AI & real-time systems</h3>
+            <p>AI-agent integration, conversational AI, streaming responses, AG-UI event handling, voice interfaces, native audio processing</p>
+          </article>
+          <article class="skill-card">
+            <div class="skill-number">05</div>
+            <h3>Backend & data</h3>
+            <p>Node.js, Firebase, MongoDB, MySQL</p>
+          </article>
+          <article class="skill-card">
+            <div class="skill-number">06</div>
+            <h3>Delivery & observability</h3>
+            <p>CI/CD, GitHub Actions, Fastlane, Git, Sentry, Firebase Crashlytics, performance profiling</p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">🏥</div>
-                    <div class="project-content">
-                        <h3>Visit Health App</h3>
-                        <div class="subtitle">Healthcare Platform | React Native</div>
-                        <p>India's leading free doctor consultation and AI-powered healthcare chatbot platform with seamless user experience.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <div class="stat-value">200K+</div>
-                                <div class="stat-label">Users</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">10K+</div>
-                                <div class="stat-label">Doctors</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">40%</div>
-                                <div class="stat-label">Crash ↓</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">👥</div>
-                    <div class="project-content">
-                        <h3>Betterplace Apps</h3>
-                        <div class="subtitle">Workforce Management | React Native</div>
-                        <p>Dual-app solution for employee attendance and leave management with facial recognition and geofencing capabilities.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <div class="stat-value">50K+</div>
-                                <div class="stat-label">Employees</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">25%</div>
-                                <div class="stat-label">Fraud ↓</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">95%</div>
-                                <div class="stat-label">Accuracy</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">🚗</div>
-                    <div class="project-content">
-                        <h3>Valet Management App</h3>
-                        <div class="subtitle">Operations Platform | React Native</div>
-                        <p>Streamlined valet operations with optimized workflows, dramatically reducing vehicle retrieval times.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <div class="stat-value">60%</div>
-                                <div class="stat-label">Time ↓</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">6-8min</div>
-                                <div class="stat-label">Retrieval</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">99.8%</div>
-                                <div class="stat-label">Uptime</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section class="section experience-section" id="experience">
+      <div class="container">
+        <div class="section-top">
+          <div>
+            <p class="section-kicker">03 — CAREER</p>
+            <h2 class="section-heading">Experience</h2>
+          </div>
+          <p class="section-intro">Progressively taking on broader ownership across mobile features, platform behavior, and technical design.</p>
         </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date">FEB 2026 — PRESENT</div>
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <div class="role-line">
+                <div><h3>Senior Software Engineer</h3><p class="company">Blue Yonder (Panasonic)</p></div>
+                <span class="work-type">Enterprise · AI</span>
+              </div>
+              <ul>
+                <li>Contribute to a shared enterprise mobile platform supporting WMS, Category Management, Merchandising, and Retail applications, with reusable capabilities across authentication, configuration, and runtime behavior.</li>
+                <li>Delivered Orchestrator chat file workflows, including agent-generated downloads, image previews, user attachment management, multi-file selection (up to 10 files), and upload progress and failure handling.</li>
+                <li>Implemented mobile support for structured conversational widgets, including alert and severity-list visualizations, reusing existing design-system components.</li>
+                <li>Worked on cross-platform voice foundations and analytics; evaluated native audio capture using iOS AVAudioEngine and Android AudioRecord, including platform-specific behavior and WebSocket streaming constraints.</li>
+                <li>Leading technical discovery for long-running AI-agent interactions, covering Stop, Resume, and Start Over behavior, task-state synchronization, event replay, idempotency, and failure recovery. This work is in progress.</li>
+                <li>Replaced a hardcoded client upload-size assumption with the Upload Service configuration, while documenting a mismatch between the configured limit and backend enforcement for follow-up.</li>
+              </ul>
+              <div class="tag-row"><span>React Native</span><span>TypeScript</span><span>WebSockets</span><span>Native iOS/Android</span><span>AI Agents</span></div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">APR 2025 — DEC 2025</div>
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <div class="role-line">
+                <div><h3>Senior Software Developer (SDE 2)</h3><p class="company">32nd Milestone</p></div>
+                <span class="work-type">Consumer products</span>
+              </div>
+              <ul>
+                <li>Architected a cross-platform React Native and Expo application for Android, iOS, and Web, including PWA optimizations and automated CI/CD workflows.</li>
+                <li>Spearheaded Retail Pod features such as Table Reservation and Insider Program using Redux, React Navigation, role-based logic, and GraphQL workflows.</li>
+                <li>Re-engineered real-time valet workflows across frontend and backend integrations, reducing vehicle retrieval time from 15 minutes to 6–8 minutes.</li>
+                <li>Optimized React Native performance using Hermes, Reanimated 2, and bundle-level techniques, reducing frame drops by 25% and improving cold-start time by 30%.</li>
+              </ul>
+              <div class="tag-row"><span>React Native</span><span>Expo</span><span>GraphQL</span><span>Redux</span><span>CI/CD</span></div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">FEB 2022 — APR 2025</div>
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <div class="role-line">
+                <div><h3>Software Developer (SDE 1)</h3><p class="company">Unthinkable Solutions LLP</p></div>
+                <span class="work-type">Healthcare · Enterprise</span>
+              </div>
+              <ul>
+                <li>Built and maintained Visit Health and Betterplace mobile applications, supporting healthcare services for 200K+ users and workforce-management workflows for enterprise customers.</li>
+                <li>Set up CI/CD pipelines using Fastlane and GitHub Actions for Android and iOS releases, reducing release time by 40%.</li>
+                <li>Developed modular SDK integrations, including HealthKit, video calling, and monitoring capabilities for enterprise clients.</li>
+                <li>Integrated third-party SDKs for payments, analytics, and crash reporting; optimized network requests and reduced crash rates by 40%.</li>
+                <li>Collaborated with backend and QA teams to deliver real-time chat, push notifications, analytics dashboards, and native modules for payments, biometrics, and geofencing.</li>
+              </ul>
+              <div class="tag-row"><span>React Native</span><span>JavaScript</span><span>TypeScript</span><span>Firebase</span><span>Native Modules</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-content">
-                <h2 class="section-title" style="color: white;">Let's Connect</h2>
-                <p style="font-size: 1.1rem; margin-bottom: 2rem;">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
-                <div class="contact-links">
-                    <a href="mailto:sanjanagupta2516@gmail.com" class="contact-link">
-                        <div class="contact-icon">📧</div>
-                        <span>Email</span>
-                    </a>
-                    <a href="https://linkedin.com/in/sanjana-gupta-1604" target="_blank" class="contact-link">
-                        <div class="contact-icon">💼</div>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="tel:+917898979182" class="contact-link">
-                        <div class="contact-icon">📱</div>
-                        <span>Phone</span>
-                    </a>
-                </div>
-            </div>
+    <section class="section work-section" id="work">
+      <div class="container">
+        <div class="section-top">
+          <div>
+            <p class="section-kicker">04 — SELECTED WORK</p>
+            <h2 class="section-heading">Problems I’ve worked on</h2>
+          </div>
+          <p class="section-intro">A selection of product and engineering work across enterprise, AI, voice, and healthcare.</p>
         </div>
+        <div class="projects-grid">
+          <article class="project-card project-featured">
+            <div class="project-topline"><span>01 / ENTERPRISE AI</span><span>BLUE YONDER</span></div>
+            <div class="project-symbol">◈</div>
+            <h3>Orchestrator mobile experiences</h3>
+            <p>Building mobile capabilities for AI-agent conversations: file downloads and previews, multi-attachment workflows, structured alert/severity widgets, and reliable chat states across iOS and Android.</p>
+            <div class="project-tags"><span>React Native</span><span>AI integration</span><span>File workflows</span><span>Schema-driven UI</span></div>
+          </article>
+          <article class="project-card">
+            <div class="project-topline"><span>02 / NATIVE SYSTEMS</span><span>BLUE YONDER</span></div>
+            <div class="project-symbol">⌁</div>
+            <h3>Cross-platform voice foundations</h3>
+            <p>Explored native audio capture using AVAudioEngine and AudioRecord, validating platform behavior, permissions, interruptions, and the boundary between local recording and streaming integration.</p>
+            <div class="project-tags"><span>AVAudioEngine</span><span>AudioRecord</span><span>WebSockets</span><span>Voice analytics</span></div>
+          </article>
+          <article class="project-card">
+            <div class="project-topline"><span>03 / HEALTHCARE</span><span>UNTHINKABLE</span></div>
+            <div class="project-symbol">✳</div>
+            <h3>Visit Health</h3>
+            <p>Worked on a healthcare app and consultation platform supporting 200K+ users, with chat, push notifications, SDK integrations, performance improvements, and production monitoring.</p>
+            <div class="project-tags"><span>React Native</span><span>Firebase</span><span>SDK integration</span><span>Crashlytics</span></div>
+          </article>
+          <article class="project-card">
+            <div class="project-topline"><span>04 / OPERATIONS</span><span>32ND MILESTONE</span></div>
+            <div class="project-symbol">↗</div>
+            <h3>Valet workflow optimization</h3>
+            <p>Improved real-time valet operations through frontend and backend workflow integration, reducing vehicle retrieval time from 15 minutes to approximately 6–8 minutes.</p>
+            <div class="project-tags"><span>React Native</span><span>Real-time workflows</span><span>API integration</span></div>
+          </article>
+        </div>
+        <p class="work-disclaimer">Some work is part of proprietary products. Descriptions are intentionally high-level and do not disclose confidential implementation details.</p>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Sanjana Gupta. Built with ❤️ for innovation.</p>
+    <section class="contact-section" id="contact">
+      <div class="container contact-content">
+        <p class="section-kicker">05 — CONTACT</p>
+        <h2>Have an interesting<br><span>engineering challenge?</span></h2>
+        <p>I’m open to connecting about mobile engineering, platform development, and software opportunities.</p>
+        <a class="button button-light" href="mailto:sanjanagupta2516@gmail.com">sanjanagupta2516@gmail.com <span aria-hidden="true">↗</span></a>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/sanjana-gupta-1604/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a href="https://sanjana1604.com" target="_blank" rel="noopener noreferrer">Portfolio domain ↗</a>
+          <a href="tel:+917898979182">+91 78989 79182</a>
         </div>
-    </footer>
+      </div>
+    </section>
+  </main>
 
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#home">SG<span>.</span></a>
+      <p>Designed and built with care · © <span id="year"></span> Sanjana Gupta</p>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
 
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+    toggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
 
-        // Observe all cards
-        document.querySelectorAll('.skill-card, .project-card, .timeline-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-    </script>
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.skill-card, .timeline-card, .project-card').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
